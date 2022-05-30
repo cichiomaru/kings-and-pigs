@@ -42,6 +42,7 @@ namespace PoolSystem {
             foreach(GameObject go in pool) {
                 if (go.activeSelf == false) {
                     go.SetActive(true);
+
                     FloatingDamageUI _fdui = go.GetComponent<FloatingDamageUI>();
                     _fdui.ShowDamage(_position, _damageValue);
 

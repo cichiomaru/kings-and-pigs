@@ -26,7 +26,7 @@ namespace AI {
             moveable = GetComponent<MoveAction>();
         }
         private void Start() {
-            state = State.Idle;
+
         }
         private void Update() {
             if (state == State.Patrol) {

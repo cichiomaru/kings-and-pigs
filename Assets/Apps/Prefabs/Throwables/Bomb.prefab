@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6453660604503860428}
   - component: {fileID: 6453660604503860429}
-  - component: {fileID: 6453660604503860431}
   - component: {fileID: 6453660604503860430}
   - component: {fileID: 6453660604503860425}
+  - component: {fileID: 6453660604503860431}
+  - component: {fileID: 3547371479895911360}
+  - component: {fileID: 2480499279624475976}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -85,18 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6453660604503860431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6453660604503860402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4ee87397cc3b674db9582437029dd83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &6453660604503860430
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,3 +124,83 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6453660604503860431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453660604503860402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ee87397cc3b674db9582437029dd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3547371479895911360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453660604503860402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63373da176888df4fade8a7a3118f0a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag:
+  - Enemy
+  OnCollide:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6453660604503860431}
+        m_TargetAssemblyTypeName: EntityBehaviour.Throwable, Assembly-CSharp
+        m_MethodName: Deactivate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2480499279624475976}
+        m_TargetAssemblyTypeName: Effects.ExplosionEffect, Assembly-CSharp
+        m_MethodName: ShowExplosion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnCollideWithParameter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6453660604503860431}
+        m_TargetAssemblyTypeName: EntityBehaviour.Throwable, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2480499279624475976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453660604503860402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45fbcf0f0d0ce34eae773b45ae75262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

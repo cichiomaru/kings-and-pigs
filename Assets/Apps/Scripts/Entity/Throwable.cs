@@ -29,17 +29,18 @@ namespace EntityBehaviour {
             }
             rb2d.AddForce(_directionVector * _throwPower);
         }
-        private void OnCollisionEnter2D(Collision2D collision) {
-            if (collision.gameObject.tag.Equals("Enemy")) {
-                DamageTextPool.instance.RequestText(collision.transform.position, 10);
-            }
-            DestroySelf();
-        }
         /// <summary>
-        /// menghilangkan object diri sendiri ketika terjadi collision
+        /// deaktivasi object
         /// </summary>
-        private void DestroySelf() {
+        public void Deactivate() {
             gameObject.SetActive(false);
+        }
+        public void Damage(Collision2D _collision) {
+            Damageable _damageable = _collision.gameObject.GetComponent<Damageable>();
+
+            if (_damageable == null) return;
+
+            _damageable.TakeDamage(1);
         }
     }
 }

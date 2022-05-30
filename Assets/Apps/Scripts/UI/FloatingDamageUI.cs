@@ -21,12 +21,11 @@ namespace UI {
         /// <param name="_objectPosition">posisi object yang terkena damage</param>
         /// <param name="_damageText">nilai dari damage yang ditampilkan</param>
         public void ShowDamage (Vector3 _objectPosition, int _damageText) {
-            Vector3 _uiPosition;
-            _uiPosition = Camera.main.WorldToScreenPoint(_objectPosition);
+            Vector3 _uiPosition = Camera.main.WorldToScreenPoint(_objectPosition);
 
             gameObject.SetActive(true);
             damageText.text = _damageText.ToString();
-            damageText.rectTransform.position = _uiPosition;
+            transform.position = _uiPosition;
 
             StartCoroutine(DamageTimer());
         }
