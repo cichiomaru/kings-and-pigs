@@ -8,20 +8,28 @@ namespace InputSystem {
         /// <summary>
         /// reference untuk komponen Moveable
         /// </summary>
-        private Moveable moveable;
+        private MoveAction moveAction;
         /// <summary>
         /// reference untuk komponen Jumpable
         /// </summary>
-        private Jumpable jumpable;
+        private JumpAction jumpAction;
+        /// <summary>
+        /// reference untuk komponent Throwable
+        /// </summary>
+        private ThrowAction throwAction;
 
         private void Awake() {
-            moveable = GetComponent<Moveable>();
-            jumpable = GetComponent<Jumpable>();
+            moveAction = GetComponent<MoveAction>();
+            jumpAction = GetComponent<JumpAction>();
+            throwAction = GetComponent<ThrowAction>();
         }
         private void Update() {
-            moveable.SetDirection(Input.GetAxisRaw("Horizontal"), Axis.x);
+            moveAction.SetDirection(Input.GetAxisRaw("Horizontal"), Axis.x);
             if (Input.GetKeyDown(KeyCode.Space)) {
-                jumpable.Jump();
+                jumpAction.Jump();
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow)) {
+                throwAction.Throw();
             }
         }
     } 

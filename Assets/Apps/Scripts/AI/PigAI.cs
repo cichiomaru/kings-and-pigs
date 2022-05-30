@@ -20,10 +20,10 @@ namespace AI {
         /// <summary>
         /// reference ke komponen moveable
         /// </summary>
-        private Moveable moveable;
+        private MoveAction moveable;
 
         private void Awake() {
-            moveable = GetComponent<Moveable>();
+            moveable = GetComponent<MoveAction>();
         }
         private void Start() {
             state = State.Idle;

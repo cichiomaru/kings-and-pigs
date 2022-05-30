@@ -503,6 +503,7 @@ GameObject:
   - component: {fileID: 291382102}
   - component: {fileID: 291382101}
   - component: {fileID: 291382103}
+  - component: {fileID: 291382104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -522,6 +523,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1680250483}
+  - {fileID: 520124426}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -597,10 +599,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 291382097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de6265f548640d488992e1a1370313a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ad0908f2bbaa924cb2107fcbf5e7ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 14
+--- !u!114 &291382104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291382097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6e5d155a1b45c4191d1571a666bfec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwable: {fileID: 6453660604503860431, guid: e9cd83c5a8b1f2b4d8e1a9698423cc9f, type: 3}
+  throwAnchor: {fileID: 520124426}
+  bombCount: {fileID: 11400000, guid: cb3e2abbf178e7d4f8be4aa00dc49928, type: 2}
+  throwPower: 7
 --- !u!1 &338579155
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,6 +923,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &520124425
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520124426}
+  m_Layer: 0
+  m_Name: Throw Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &520124426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520124425}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.706, y: 0.545, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 291382098}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &553585229
 GameObject:
@@ -2718,7 +2766,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 973708442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5de6265f548640d488992e1a1370313a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ad0908f2bbaa924cb2107fcbf5e7ef5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   jumpPower: 14

@@ -8,7 +8,7 @@ namespace EntityBehaviour {
     public enum Axis {
         x, y, z
     }
-    public class Moveable : MonoBehaviour {
+    public class MoveAction : MonoBehaviour {
         /// <summary>
         /// kecepatan pergerakan entity
         /// </summary>

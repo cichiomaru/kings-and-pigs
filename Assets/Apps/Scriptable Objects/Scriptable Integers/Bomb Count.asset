@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e62352e13df5fa4286bf1faefd1d32c, type: 3}
   m_Name: Bomb Count
   m_EditorClassIdentifier: 
-  value: 0
-  defaultValue: 0
+  value: 10
+  defaultValue: 10
   isResetEveryPlay: 1
