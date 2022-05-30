@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PoolSystem;
 
 namespace EntityBehaviour {
     public enum Direction {
@@ -27,6 +28,18 @@ namespace EntityBehaviour {
                 _directionVector = new Vector2(.5f, .5f);
             }
             rb2d.AddForce(_directionVector * _throwPower);
+        }
+        private void OnCollisionEnter2D(Collision2D collision) {
+            if (collision.gameObject.tag.Equals("Enemy")) {
+                DamageTextPool.instance.RequestText(collision.transform.position, 10);
+            }
+            DestroySelf();
+        }
+        /// <summary>
+        /// menghilangkan object diri sendiri ketika terjadi collision
+        /// </summary>
+        private void DestroySelf() {
+            gameObject.SetActive(false);
         }
     }
 }
