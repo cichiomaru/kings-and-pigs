@@ -40,7 +40,8 @@ namespace EntityBehaviour {
                 throwAnchor.rotation);
 
             Throwable _throwable = go.GetComponent<Throwable>();
-            _throwable.AddForce(new Vector2(.5f, .5f) * 100 * throwPower);
+            Direction _direction = transform.rotation.y != 0 ? Direction.Left : Direction.Right;
+            _throwable.AddForce(_direction, 100 * throwPower);
         }
 
         /// <summary>

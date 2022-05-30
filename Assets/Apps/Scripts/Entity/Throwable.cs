@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace EntityBehaviour {
+    public enum Direction {
+        Left, Right
+    }
     public class Throwable : MonoBehaviour {
         /// <summary>
         /// reference untuk rigidbody2d pada throwable objects
@@ -16,8 +19,14 @@ namespace EntityBehaviour {
         /// <summary>
         /// menambahkan force ke object
         /// </summary>
-        internal void AddForce(Vector2 _force) {
-            rb2d.AddForce(_force);
+        internal void AddForce(Direction _direction, int _throwPower) {
+            Vector2 _directionVector;
+            if (_direction == Direction.Left) {
+                _directionVector = new Vector2(-.5f, .5f);
+            } else {
+                _directionVector = new Vector2(.5f, .5f);
+            }
+            rb2d.AddForce(_directionVector * _throwPower);
         }
     }
 }
