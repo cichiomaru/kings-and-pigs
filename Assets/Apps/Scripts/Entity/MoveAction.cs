@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 namespace EntityBehaviour {
     public enum Axis {
         x, y, z
     }
-    public class MoveAction : MonoBehaviour {
+    public class MoveAction : AnimatedAction {
         /// <summary>
         /// kecepatan pergerakan entity
         /// </summary>
@@ -23,6 +24,16 @@ namespace EntityBehaviour {
         /// </summary>
         [SerializeField]
         private bool updateFaceDirection;
+        /// <summary>
+        /// event yang akan dijalankan ketika object bergerak
+        /// </summary>
+        [SerializeField]
+        private UnityEvent<Vector3> OnMove;
+        /// <summary>
+        /// event yang akan dijalankan ketika object berhenti
+        /// </summary>
+        [SerializeField]
+        private UnityEvent OnStop;
 
         /// <summary>
         /// set arah pergerakan
@@ -62,7 +73,23 @@ namespace EntityBehaviour {
         private void Update() {
             PositionUpdate();
             RotationUpdate();
+            AnimationUpdate();
+
+            if (direction.magnitude > 0) {
+                OnMove?.Invoke(direction);
+            } else {
+                OnStop?.Invoke();
+            }
         }
+
+        /// <summary>
+        /// update parameter yang ada di animator
+        /// </summary>
+        private void AnimationUpdate() {
+            if (animator != null)
+                animator.SetFloat("speed", direction.magnitude);
+        }
+
         /// <summary>
         /// update arah object
         /// </summary>
